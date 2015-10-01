@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+
+  before_filter :restrict_access, only: [:new, :create, :update, :destroy]
   
   require 'RMagick'
 

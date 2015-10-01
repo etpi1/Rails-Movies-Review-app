@@ -1,0 +1,29 @@
+<h1> Welcome Admin </h1>
+ <%= paginate @users %>
+<table>
+  <thead>
+    <th>USER-ID</th>
+    <th>USER-EMAIL</th>
+    <th>EDIT/DELETE</th>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+   <tr>
+    <td> <%= user.id %> </td> 
+    <td> <%= user.email %> </td>
+    <td> (<%= link_to "Edit", edit_admin_user_path(user) %> |  <%= link_to "Delete", admin_user_path(user), method: :delete, confirm: "You sure?" %>)
+    <tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p> <%= link_to "Create a user", new_admin_user_path %>
+</p>
+
+<!--      t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.boolean  "admin" -->

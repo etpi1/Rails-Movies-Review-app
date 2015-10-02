@@ -35,4 +35,22 @@ class Movie < ActiveRecord::Base
   end
 
   mount_uploader :image, ImageUploader
+
+  def self.search(title, director, duration)
+    where("title LIKE ? AND director LIKE ?", "%#{title}%", "%#{director}%").where(runtime_in_minutes: Movie.get_duration(duration))
+  end
+
+  def self.get_duration(duration)
+    case duration
+    when "1"
+      return (0..89)
+    when "2"
+      return (90..120)
+    when "3"
+      return (121..300)
+    else
+      return (0..300)
+    end
+  end 
+
 end

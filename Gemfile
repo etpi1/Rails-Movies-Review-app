@@ -50,3 +50,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 # Resize image
 gem 'rmagick'
+
+gem 'pry'

@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   require 'RMagick'
 
   def index
-    @movies = Movie.all
+    @movies = Movie.search(params[:title], params[:director], params[:duration]).order("created_at DESC")
   end
 
   def show
@@ -55,3 +55,7 @@ class MoviesController < ApplicationController
   end
 
 end
+
+
+
+
